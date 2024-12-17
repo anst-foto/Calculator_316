@@ -21,7 +21,7 @@ public static class Calc
     }
 
     public static async Task<long> SumAsync(int startNum, int endNumber, long startSum, CancellationToken cancellationToken = default,
-        IProgress<(int, long)>? progress = null)
+        IProgress<(int index, long sum)>? progress = null)
     {
         long result = startSum;
         

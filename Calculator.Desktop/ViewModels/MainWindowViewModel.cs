@@ -49,13 +49,13 @@ public class MainWindowViewModel : ReactiveObject
                 var endNum = int.Parse(InputNumberText!);
                 var startSum = _startSum ?? 0;
 
-                var progress = new Progress<(int, long)>();
+                var progress = new Progress<(int index, long sum)>();
                 progress.ProgressChanged += (_, report) =>
                 {
-                    ProgressSumValue = report.Item1;
+                    ProgressSumValue = report.index;
                     
-                    _startSum = report.Item2;
-                    _numberStartNum = report.Item1 + 1;
+                    _startSum = report.sum;
+                    _numberStartNum = report.index + 1;
                 };
 
                 try
